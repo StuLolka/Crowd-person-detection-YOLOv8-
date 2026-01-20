@@ -24,3 +24,8 @@ frames/
 .DS_Store
 .idea/
 .vscode/
+
+# Model weights
+*.pt
+yolov8n.pt
+

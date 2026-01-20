@@ -2,6 +2,8 @@ import cv2
 from pathlib import Path
 from ultralytics import YOLO
 import subprocess
+import imageio_ffmpeg
+
 
 video_path = Path('src/crowd.mp4')
 output_dir = Path('output')
@@ -55,8 +57,10 @@ cap.release()
 
 out_path = output_dir / f'result.mp4'
 
+ffmpeg_exe = imageio_ffmpeg.get_ffmpeg_exe()
+
 cmd = [
-    'ffmpeg',
+    ffmpeg_exe,
     '-y',
     '-framerate', str(fps),
     '-i', str(frame_dir / "frame_%04d.jpg"),
