@@ -63,6 +63,57 @@ python main.py
 output/processed_output.mp4
 ```
 
+## Зависимости и совместимость окружения
+
+### NumPy (важное примечание для macOS)
+
+На некоторых системах (в частности, **macOS**) при установке зависимостей может автоматически устанавливаться **NumPy версии 2.x**, что приводит к ошибке:
+
+**`RuntimeError: Numpy is not available`**
+
+
+Это связано с несовместимостью текущих сборок **PyTorch / Ultralytics** с NumPy 2.x.
+
+Для корректной работы проекта используется **NumPy версии < 2.0**.
+
+Если ошибка возникает, выполните в активированном виртуальном окружении:
+
+```bash
+pip install "numpy<2"
+```
+
+## Примечание о запуске Python на разных ОС
+
+В зависимости от операционной системы команда запуска Python может называться по-разному:
+- **Linux / Ubuntu**
+По умолчанию используется команда **`python3`**:
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+python3 -m pip install -r requirements.txt
+python3 main.py
+```
+- **macOS**
+В большинстве случаев доступна команда **`python`**: , но также может потребоваться **`python3`**
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+python3 -m pip install -r requirements.txt
+python3 main.py
+```
+- **Windows**
+В PowerShell:
+```bash
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+pip install -r requirements.txt
+python main.py
+```
+Если активация виртуального окружения заблокирована политикой PowerShell, выполните:
+```bash
+Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process
+```
+
 ## Кроссплатформенность
 
 Для корректного воспроизведения выходного видео на **Linux, macOS и Windows** используется кодирование:
