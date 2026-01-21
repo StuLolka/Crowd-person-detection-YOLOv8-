@@ -94,7 +94,7 @@ python3 -m pip install -r requirements.txt
 python3 main.py
 ```
 - **macOS**
-В большинстве случаев доступна команда **`python`**: , но также может потребоваться **`python3`**
+В большинстве случаев доступна команда **`python`**, но также может потребоваться **`python3`**
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
